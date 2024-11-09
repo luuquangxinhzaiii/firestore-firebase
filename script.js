@@ -129,6 +129,7 @@ async function loadVotingSection() {
           <img src="${candidate.photo}" alt="${candidate.name}">
           <h2>${candidate.name}</h2>
           <p>${candidate.position}</p>
+          <p>${candidate.department}</p>
           <button onclick="vote('${candidate.id}')">Vote</button>
       `;
 
