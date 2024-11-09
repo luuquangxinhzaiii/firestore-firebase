@@ -121,6 +121,16 @@ async function loadVotingSection() {
   const votingSection = document.getElementById('voting-section');
   votingSection.innerHTML = ''; 
 
+  candidates.sort((a, b) => {
+    if (a.department < b.department) {
+      return -1;
+    } else if (a.department > b.department) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
   candidates.forEach(candidate => {
       const candidateElement = document.createElement('div');
       candidateElement.classList.add('candidate-card');
