@@ -77,7 +77,7 @@ header p {
 }
 
 .candidate-card h2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #34495e;
   margin-bottom: 10px;
 }
@@ -166,25 +166,25 @@ p {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .voting-section {
-    grid-template-columns: repeat(4, 1fr); /* 4 ứng viên trên 1 dòng */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 900px) {
   .voting-section {
-    grid-template-columns: repeat(3, 1fr); /* 3 ứng viên trên 1 dòng */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .voting-section {
-    grid-template-columns: repeat(2, 1fr); /* 2 ứng viên trên 1 dòng */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .voting-section {
-    grid-template-columns: 1fr; /* 1 ứng viên trên 1 dòng */
+    grid-template-columns: 1fr;
   }
 }
 
