@@ -11,10 +11,26 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script type="module" src="script.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
 </head>
 
 <body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="candidate.html">Candidate</a>
+  </div>
+
   <div class="app-wrapper">
+    <span style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; open</span>
     <div class="logo-container">
       <img src="./asset/pageImg/logo_tasco_academy.png" alt="Logo" class="logo">
     </div>
@@ -27,42 +43,7 @@
     </header>
 
     <main id="voting-section" class="voting-section">
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Nguyễn Thị Hồng Liên" />
-        <h2>Nguyễn Thị Hồng Liên</h2>
-        <p>Giám đốc đào tạo Tasco</p>
-        <button onclick="vote('A')">Bình chọn</button>
-      </div>
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Trương Thanh Sơn" />
-        <h2>Trương Thanh Sơn</h2>
-        <p>Phó giám đốc đào tạo Tasco</p>
-        <button onclick="vote('B')">Bình chọn</button>
-      </div>
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Đào Quốc Trung" />
-        <h2>Đào Quốc Trung</h2>
-        <p>Trưởng phòng đào tạo Tasco</p>
-        <button onclick="vote('C')">Bình chọn</button>
-      </div>
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Lê Đức Anh" />
-        <h2>Lê Đức Anh</h2>
-        <p>Quản lý thúc đẩy hiệu suất Tasco</p>
-        <button onclick="vote('D')">Bình chọn</button>
-      </div>
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Đinh Thị Thùy Dung" />
-        <h2>Đinh Thị Thùy Dung</h2>
-        <p>Quản lý đào tạo Tasco</p>
-        <button onclick="vote('E')">Bình chọn</button>
-      </div>
-      <div class="candidate-card">
-        <img src="./asset/candidateImg/Lien.nth.jpg" alt="Nguyễn Trường Giang" />
-        <h2>Nguyễn Trường Giang</h2>
-        <p>Quản lý truyền thông nội bộ Tasco</p>
-        <button onclick="vote('F')">Bình chọn</button>
-      </div>
+      <!-- lst candidate -->
     </main>
 
     <section class="results-section">
@@ -71,24 +52,9 @@
       <p>Total Votes: <span id="totalVotes">0</span></p>
       <div id="detailedResults" style="display: none">
         <h3>Vote Breakdown:</h3>
-        <p>
-          Nguyễn Thị Hồng Liên: <span id="votesA">0</span> votes (<span id="percentA">0%</span>)
-        </p>
-        <p>
-          Trương Thanh Sơn: <span id="votesB">0</span> votes (<span id="percentB">0%</span>)
-        </p>
-        <p>
-          Đào Quốc Trung: <span id="votesC">0</span> votes (<span id="percentC">0%</span>)
-        </p>
-        <p>
-          Lê Đức Anh: <span id="votesD">0</span> votes (<span id="percentD">0%</span>)
-        </p>
-        <p>
-          Đinh Thị Thùy Dung: <span id="votesE">0</span> votes (<span id="percentE">0%</span>)
-        </p>
-        <p>
-          Nguyễn Trường Giang: <span id="votesF">0</span> votes (<span id="percentF">0%</span>)
-        </p>
+        <div id="voteBreakdown">
+          <!-- candidate results -->
+        </div>
       </div>
       <button id="showResults" onclick="showDetailedResults()">
         Show Results

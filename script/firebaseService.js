@@ -62,15 +62,23 @@ export async function resetVote() {
 
 export async function getVoteResults() {
   const votesSnapshot = await getDocs(collection(db, "votes"));
-  let votes = { A: 0, B: 0, C: 0 };
+  const candidates = await getCandidates();
 
-  votesSnapshot.forEach((doc) => {
-    const candidate = doc.data().candidateId;
-    votes[candidate]++;
+  votesSnapshot.forEach((doc) => {    
+    const candidateId = doc.data().candidateId;
+    const candidate = candidates.find((c) => String(c.id) == String(candidateId));
+
+    if (candidate) {
+      candidate.totalVote = candidate.totalVote || 0;
+      candidate.totalVote++;
+    } 
   });
 
-  return votes;
+  candidates.sort((a, b) => b.totalVote - a.totalVote);
+  
+  return candidates;
 }
+
 
 const candidatesRef = collection(db, "candidates");
 
@@ -84,8 +92,10 @@ export async function getCandidates() {
       department : doc.data().department,
       position: doc.data().position,
       photo: doc.data().uri,
+      totalVote: 0
     });
   });
+
   return candidates;
 }
 
