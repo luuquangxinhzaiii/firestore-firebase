@@ -1,5 +1,4 @@
-import { signIn, voteForCandidate, resetVote, getVoteResults } from "./firebaseService.js";
-
+import { signIn, voteForCandidate, resetVote, getVoteResults, getCandidates } from "./script/firebaseService.js";
 signIn();
 
 const votes = await getVoteResults();
@@ -74,7 +73,6 @@ function showDetailedResults() {
   document.getElementById('detailedResults').style.display = 'block';
 }
 
-// Hàm reset phiếu bầu và cập nhật kết quả
 async function handleReset() {
     try {
         await resetVote();
@@ -98,8 +96,31 @@ function showConfirmation(candidate) {
   }, 3000);
 }
 
+async function loadVotingSection() {
+  const candidates = await getCandidates();
+  const votingSection = document.getElementById('voting-section');
+  votingSection.innerHTML = ''; 
+
+  candidates.forEach(candidate => {
+      const candidateElement = document.createElement('div');
+      candidateElement.classList.add('candidate-card');
+
+      candidateElement.innerHTML = `
+          <img src="${candidate.photo}" alt="${candidate.name}">
+          <h2>${candidate.name}</h2>
+          <p>Position: ${candidate.position}</p>
+          <button onclick="vote('${candidate.id}')">Vote for ${candidate.name}</button>
+      `;
+
+      votingSection.appendChild(candidateElement);
+  });
+}
+
+$(document).ready(function () {
+//  loadVotingSection();
+});
+
 // Gán hàm vào window để có thể gọi từ HTML
 window.vote = handleVote;
 window.resetVotes = handleReset;
 window.showDetailedResults = showDetailedResults;
-
