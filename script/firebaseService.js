@@ -15,13 +15,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB7p7LubazlWBBhsAvsQinenWWxKCUtOlE",
-  authDomain: "tasco-voting-app.firebaseapp.com",
-  projectId: "tasco-voting-app",
-  storageBucket: "tasco-voting-app.firebasestorage.app",
-  messagingSenderId: "216874178884",
-  appId: "1:216874178884:web:10cecd1bb5ad45e3ef1f11",
-  measurementId: "G-0T45DKMP78"
+  apiKey: "AIzaSyD__TnNBBKJn4xZnMndscdTU-3R38o8OKM",
+  authDomain: "test-firestore-32561.firebaseapp.com",
+  projectId: "test-firestore-32561",
+  storageBucket: "test-firestore-32561.firebasestorage.app",
+  messagingSenderId: "189069637614",
+  appId: "1:189069637614:web:0e2cae7327529f9dba00ff"
 };
 
 const app = initializeApp(firebaseConfig);

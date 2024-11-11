@@ -247,3 +247,24 @@ p {
     float: none;
   }
 }
+
+footer {
+  color: #ffffff;
+  font-size: 15px;
+  padding-top: 2vw;
+}
+
+footer * {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+.copyright {
+  padding: 0.3em 1em;
+}
+
+.copyright p {
+  font-size: 0.9em;
+}
